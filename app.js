@@ -9,45 +9,16 @@ app.set('view engine', 'ejs');
 app.get("/", function (req, res) {
 
     let today = new Date();
-    let currentDay = today.getDay();
-    let day = "";
 
-    // The getDay() method returns the weekday as a number between 0 and 6.
-    switch (currentDay) {
-        
-        case 0:
-            day = "Sunday's";
-            break;
-        
-        case 1:
-            day = "Monday's";
-            break;
-        
-        case 2:
-            day = "Tuesday's";
-            break;
-    
-        case 3:
-            day = "Wednesday's";
-            break;
+    let options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+    };
 
-        case 4:
-            day = "Thursday's";
-            break;
+    let day = today.toLocaleDateString("en-US", options);
 
-        case 5:
-            day = "Friday's";
-            break;
-
-        case 6:
-            day = "Satuday's";
-            break;
-
-        default:
-            console.log("Error: Current day is equal to : " + currentDay);
-    }
-
-    res.render("list", {dayOfWeek: day});
+    res.render("list", {todaysDate: day});
 
 });
 
