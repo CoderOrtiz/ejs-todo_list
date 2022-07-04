@@ -6,43 +6,48 @@ const app = express();
 // Line 7 must be after "const app = express();"
 app.set('view engine', 'ejs');
 
-let day = "";
-
 app.get("/", function (req, res) {
 
+    let today = new Date();
+    let currentDay = today.getDay();
+    let day = "";
+
     // The getDay() method returns the weekday as a number between 0 and 6.
-    switch (new Date().getDay()) {
+    switch (currentDay) {
         
         case 0:
-            day = "Today is Sunday";
+            day = "Sunday's";
             break;
         
         case 1:
-            day = "Today is Monday";
+            day = "Monday's";
             break;
         
         case 2:
-            day = "Today is Tuesday";
+            day = "Tuesday's";
             break;
     
         case 3:
-            day = "Today is Wednesday";
+            day = "Wednesday's";
             break;
 
         case 4:
-            day = "Today is Thursday";
+            day = "Thursday's";
             break;
 
         case 5:
-            day = "Today is Friday";
+            day = "Friday's";
             break;
 
         case 6:
-            day = "Today is Satuday";
+            day = "Satuday's";
             break;
+
+        default:
+            console.log("Error: Current day is equal to : " + currentDay);
     }
 
-    res.render("list", {kindOfDay: day});
+    res.render("list", {dayOfWeek: day});
 
 });
 
