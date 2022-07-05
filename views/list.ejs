@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-   
-<h1><%= todaysDate %></h1>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="box" id="heading">
+      <h1><%= todaysDate %></h1>
+    </div>
 
-<ul>
+    <div class="box">
+      <% for (let i = 0; i < newListItems.length; i++) { %>
 
-<% for (let i = 0; i < newListItems.length; i++) { %>
-    <li><%= newListItems[i] %></li>
-<% } %>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%= newListItems[i] %></p>
+      </div>
+      <% } %>
 
-</ul>
+      <form class="" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
 
-<form class="" action="/" method="post">
-
-<input type="text" name="newItem">
-
-<button type="submit" name="button">Add to my ToDo List</button>
-
-</form>
-
-</body>
+        <button type="submit" name="button">Add to my ToDo List</button>
+      </form>
+    </div>
+  </body>
 </html>
