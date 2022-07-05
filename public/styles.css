@@ -1,8 +1,8 @@
 html {
-  background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, black 59%, #2185D5 31%);
+  background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(65deg, black 59%, #2185d5 31%);
   min-height: 1000px;
-  font-family: 'helvetica neue';
+  font-family: "helvetica neue";
 }
 
 h1 {
@@ -34,7 +34,7 @@ h1 {
   border-bottom: 0;
 }
 
-input:checked+p {
+input:checked + p {
   text-decoration: line-through;
   text-decoration-color: red;
 }
@@ -56,8 +56,8 @@ form {
   margin-left: 20px;
 }
 
-button{
-  font-family: 'Lobster';
+button {
+  font-family: "Lobster";
   padding: 15px 25px;
   font-size: 24px;
   cursor: pointer;
@@ -72,14 +72,14 @@ button{
 }
 
 button:hover {
-background-color: #FFE61B;
-color: black;
+  background-color: #ffe61b;
+  color: black;
 }
 
 button:active {
-background-color: #FFE61B;
-box-shadow: 0 5px #666;
-transform: translateY(4px);
+  background-color: #ffe61b;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 input[type="text"] {
