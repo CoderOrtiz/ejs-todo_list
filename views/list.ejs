@@ -1,9 +1,12 @@
 <%- include("header") -%>
 <div class="box" id="heading">
+  <!-- "listTitle" is a Key Value Pair. The Value will be inserted where they Key is placed (inside "app.js")." -->
+  <!-- Line 5 is an example of an EJS Tag -->
   <h1><%= listTitle %></h1>
 </div>
 
 <div class="box">
+  <!-- This For Loop is to Create a New Line Every Time an Item is Added to the List -->
   <% for (let i = 0; i < newListItems.length; i++) { %>
 
   <div class="item">
@@ -12,6 +15,7 @@
   </div>
   <% } %>
 
+  <!-- Anytime an Item is Added, a Post Request is sent to App.JS -->
   <form class="" action="/" method="post">
     <input
       type="text"
@@ -19,6 +23,9 @@
       placeholder="New Item"
       autocomplete="off"
     />
+    <!-- Ref the Value: listTitle, When Item is Added,  -->
+    <!-- App.JS will determine if it was Made in The Home Route or Work Route -->
+    <!-- And add it to the List Accordingly -->
     <button type="submit" name="list" value= <%=listTitle %>>Add to my ToDo List
     </button>
   </form>

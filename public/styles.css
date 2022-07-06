@@ -1,3 +1,5 @@
+/* ./public, is a folder that is served to the browser and can hold html, css, JS and more. */
+/* The Public Folder is served as a Static Resource */
 html {
   background-color: #e4e9fd;
   background-image: -webkit-linear-gradient(65deg, black 59%, #2185d5 31%);

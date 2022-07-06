@@ -1,16 +1,19 @@
-module.exports = getDate;
+// This Function / Object has Been Placed in its Own File, 
+// As This is not Strictly Related to the Routing of Data.
+// This declutters the App.JS File.
 
-function getDate() {
-  let today = new Date();
+// Allows getDate to be Exported to App.JS
+module.exports.getDate = function() {
+  const today = new Date();
 
-  let options = {
+  const options = {
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric",
   };
 
-  let day = today.toLocaleDateString("en-US", options);
+  const day = today.toLocaleDateString("en-US", options);
 
   return day;
 };
