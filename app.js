@@ -6,9 +6,7 @@ const date = require(__dirname + "/date.js");
 // Renaming Express as "app"
 const app = express();
 
-// Making an Items & Work Arrays To Contain List Items
-const items = [];
-const workItems = [];
+
 
 // Tells our App to Use EJS (Must be after "app = express()")
 app.set("view engine", "ejs");
