@@ -2,7 +2,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const date = require(__dirname + "/date.js");
 
 // Renaming Express as "app"
 const app = express();
@@ -16,11 +15,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // This will provide the CSS File to the Browser
 app.use(express.static("public"));
 
+// Connects to MongoDB
 mongoose.connect("mongodb://localhost:27017/todolistDB");
 
+const itemsSchema = new mongoose.Schema ({
+  name: String
+});
+
+const Item = mongoose.model("Item", itemsSchema);
+
+const Items = new item ({
+  name: ""
+})
+
 app.get("/", function (req, res) {
-  // This Calls on the getDate Function within the Date.JS File
-  const day = date.getDate();
   // res.render uses the View Engine to Render a Particular Page.
   // Must have a views directory to use res.render, with an index.ejs File
   // Ref res.render, Express is going to look inside the folder, Views, for a file titled, "list"
