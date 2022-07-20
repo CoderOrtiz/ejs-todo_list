@@ -1,12 +1,11 @@
 // Loading in Express, Body Parser, and "Date" File
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const date = require(__dirname + "/date.js");
 
 // Renaming Express as "app"
 const app = express();
-
-
 
 // Tells our App to Use EJS (Must be after "app = express()")
 app.set("view engine", "ejs");
@@ -16,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Telling Express to use the Static Files within the Public Directory
 // This will provide the CSS File to the Browser
 app.use(express.static("public"));
+
+mongoose.connect("mongodb://localhost:27017/todolistDB");
 
 app.get("/", function (req, res) {
   // This Calls on the getDate Function within the Date.JS File
