@@ -29,24 +29,35 @@ const item1 = new Item ({
 });
 
 const item2 = new Item ({
-  name: "<-- Hit this to Delete an Item"
+  name: "<-- Hit this to Cross Off an Item"
 });
 
 const defaultItems = [item1, item2];
 
-Item.insertMany(defaultItems, function(err){
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Successfully saved Default Items to DataBase.");
-  }
-});
+
 
 app.get("/", function (req, res) {
 
   // Means Find Everything within The Items Collection
   Item.find({}, function(err, foundItems){
-    res.render("list", { listTitle: "Today", newListItems: foundItems });
+
+    // If foundItems is 0
+    if (foundItems.length === 0) {
+      // Then the defaultItems array will be executed
+      Item.insertMany(defaultItems, function(err){
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Successfully saved Default Items to DataBase.");
+        }
+      });
+      // and the user will be redirected to the home page where the defaultItems will be displayed
+      res.redirect("/");
+      
+      // If not 0, then foundItems will be displayed
+    } else {
+      res.render("list", { listTitle: "Today", newListItems: foundItems });
+    }
   });
 });
 
