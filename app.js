@@ -92,16 +92,23 @@ app.post("/", function (req, res) {
   // When a Post Request is Made, The item (within list.ejs File) is saved and we are now saving that value
   // saving that value under itemName
   const itemName = req.body.newItem;
+  const listName = req.body.list;
 
   // Using the Item Model
   const item = new Item ({
     name: itemName
   });
-  // Automaticaly saving the item value
-  item.save();
 
-  // Once saved, we redirect the user to the home route (app.get("/"))
+if (listName === "Today") {
+  item.save();
   res.redirect("/");
+} else {
+  List.findOne({name: listName}, function (err, foundList){
+    foundList.items.push(item);
+    foundList.save();
+    res.redirect("/" + listName);
+  });
+}
 });
 
 app.post("/delete", function(req, res){
