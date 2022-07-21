@@ -24,16 +24,30 @@ const itemsSchema = new mongoose.Schema ({
 
 const Item = mongoose.model("Item", itemsSchema);
 
-const Items = new item ({
-  name: ""
-})
+const item1 = new Item ({
+  name: "Welcome to your ToDo List"
+});
+
+const item2 = new Item ({
+  name: "<-- Hit this to Delete an Item"
+});
+
+const defaultItems = [item1, item2];
+
+Item.insertMany(defaultItems, function(err){
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Successfully saved Default Items to DataBase.");
+  }
+});
 
 app.get("/", function (req, res) {
-  // res.render uses the View Engine to Render a Particular Page.
-  // Must have a views directory to use res.render, with an index.ejs File
-  // Ref res.render, Express is going to look inside the folder, Views, for a file titled, "list"
-  // The Key Value's within the Object will be sent to the file titled, "list"
-  res.render("list", { listTitle: day, newListItems: items });
+
+  // Means Find Everything within The Items Collection
+  Item.find({}, function(err, foundItems){
+    res.render("list", { listTitle: "Today", newListItems: foundItems });
+  });
 });
 
 app.post("/", function (req, res) {

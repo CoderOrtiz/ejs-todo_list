@@ -7,13 +7,13 @@
 
 <div class="box">
   <!-- This For Loop is to Create a New Line Every Time an Item is Added to the List -->
-  <% for (let i = 0; i < newListItems.length; i++) { %>
+  <% newListItems.forEach(function(item) { %>
 
   <div class="item">
     <input type="checkbox" />
-    <p><%= newListItems[i] %></p>
+    <p><%= item.name %></p>
   </div>
-  <% } %>
+  <% }) %>
 
   <!-- Anytime an Item is Added, a Post Request is sent to App.JS -->
   <form class="" action="/" method="post">
