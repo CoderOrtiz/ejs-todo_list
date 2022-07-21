@@ -8,11 +8,12 @@
 <div class="box">
   <!-- This For Loop is to Create a New Line Every Time an Item is Added to the List -->
   <% newListItems.forEach(function(item) { %>
-
-  <div class="item">
-    <input type="checkbox" />
-    <p><%= item.name %></p>
-  </div>
+    <form action="/delete" method="post">
+    <div class="item">
+      <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+      <p><%= item.name %></p>
+    </div>
+  </form> 
   <% }) %>
 
   <!-- Anytime an Item is Added, a Post Request is sent to App.JS -->
