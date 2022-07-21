@@ -62,17 +62,19 @@ app.get("/", function (req, res) {
 });
 
 app.post("/", function (req, res) {
-  // When a Post Request is Made, The Item's Array is Updated 
-  const item = req.body.newItem;
+  // When a Post Request is Made, The item (within list.ejs File) is saved and we are now saving that value
+  // saving that value under itemName
+  const itemName = req.body.newItem;
 
-  // This Logic is in Ref to "List.EJS", Under the Button Tag
-  if (req.body.list === "Work") {
-    workItems.push(item);
-    res.redirect("/work");
-  } else {
-    items.push(item);
-    res.redirect("/");
-  }
+  // Using the Item Model
+  const item = new Item ({
+    name: itemName
+  });
+  // Automaticaly saving the item value
+  item.save();
+
+  // Once saved, we redirect the user to the home route (app.get("/"))
+  res.redirect("/");
 });
 
 app.get("/work", function (req, res) {
