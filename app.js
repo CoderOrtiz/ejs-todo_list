@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Connects to MongoDB
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect("mongodb+srv://CoderOrtiz:eD9smw0q03kERXGt@cluster0.ps36b.mongodb.net/todolistDB");
 
 const itemsSchema = new mongoose.Schema ({
   name: String
@@ -136,6 +136,12 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(3000, function () {
-  console.log("The Server is Running on Port 3000");
+// For Heroku
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function () {
+  console.log("The Server has started successfully!");
 });

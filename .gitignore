@@ -1,3 +1,9 @@
+# Requested by Heroku
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
+
 # Logs
 logs
 *.log
