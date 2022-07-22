@@ -1,4 +1,4 @@
-// Loading in Express, Body Parser, and "Date" File
+// Loading in Express, Body Parser, mongoose, and lodash
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -130,12 +130,6 @@ app.post("/delete", function(req, res){
       }
     });
   }
-});
-
-app.post("/work", function (req, res) {
-  const item = req.body.newItem;
-  workItems.push(item);
-  res.redirect("/work");
 });
 
 app.get("/about", function (req, res) {
