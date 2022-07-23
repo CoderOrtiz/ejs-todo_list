@@ -28,6 +28,11 @@ In this project, provided by The Complete 2022 Web Development Bootcamp, taught 
 
 10. Lastly, I learned about Node Modules and Exporting Files within Functions to other files. An Example of this can be seen in the App.JS File and the Date.JS Files
 
+### Update:
+This Project is now live on Heroku! 👉🏽 https://coderortiz-todo-list-app.herokuapp.com
+
+Feel free to Create your own Unique ToDo List by following this example, simply add the following "https://coderortiz-todo-list-app.herokuapp.com/Manager dutys" (EX. ...herokuapp.com/work).
+
 ## How I Did and my Final Thoughts:
 
 Overall I think I did well and learned a fair amount about how to utilize EJS. I have a better understanding of how to write APIs and how an API works.
